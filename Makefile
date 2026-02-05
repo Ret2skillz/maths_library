@@ -104,9 +104,9 @@ lib: $(STATIC_LIB)
 # Clean build artifacts
 clean:
 ifeq ($(DETECTED_OS),Windows)
-	@if exist "$(BUILD_DIR)" $(RMDIR) "$(BUILD_DIR)" 2>nul
-	@if exist "$(LIB_DIR)" $(RMDIR) "$(LIB_DIR)" 2>nul
-	@if exist "$(BIN_DIR)" $(RMDIR) "$(BIN_DIR)" 2>nul
+	@if exist "$(BUILD_DIR)" $(RMDIR) "$(BUILD_DIR)"
+	@if exist "$(LIB_DIR)" $(RMDIR) "$(LIB_DIR)"
+	@if exist "$(BIN_DIR)" $(RMDIR) "$(BIN_DIR)"
 else
 	$(RMDIR) $(BUILD_DIR) $(LIB_DIR) $(BIN_DIR)
 endif

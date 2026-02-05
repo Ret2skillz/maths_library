@@ -77,6 +77,7 @@ If you prefer not to use Make on Windows, you can build manually with these comm
 
 ```cmd
 REM Create build directories
+mkdir build
 mkdir build\linear_algebra
 mkdir build\number_theory
 mkdir lib
