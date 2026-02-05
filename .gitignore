@@ -1,0 +1,47 @@
+# Build artifacts
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.out
+build/
+bin/
+lib/
+obj/
+*.d
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Visual Studio
+.vs/
+*.vcxproj
+*.vcxproj.*
+*.sln
+*.suo
+*.user
+
+# macOS
+.DS_Store
+*.dSYM/
+
+# Linux
+*.swp
+*.swo
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+*.iml
+
+# Temporary files
+*.tmp
+*.temp
+*.log
