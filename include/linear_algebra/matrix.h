@@ -12,7 +12,15 @@ matrix_t* matrix_create(int rows, int cols);
 void matrix_delete(matrix_t *m);
 void matrix_print(matrix_t *m);
 
+//filling with values
+void matrix_fill(matrix_t *m, double value);
+void matrix_fill_array(matrix_t *m, double *arr);
+void matrix_ones(matrix_t *m);
+void matrix_identity(matrix_t *m);
+
 //Operations
 matrix_t* matrix_add(matrix_t *a, matrix_t *b);
+
+
 
 #endif // MATRIX_H
