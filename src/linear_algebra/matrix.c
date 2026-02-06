@@ -86,8 +86,8 @@ void matrix_identity(matrix_t *m) {
 
 
 //matrix operations
-matrix_t* matrix_add(matrix_t *a, matrix_t *b){
-    if (!a || !b) return;
+matrix_t* matrix_add(const matrix_t *a, const matrix_t *b){
+    if (!a || !b) return NULL;
 
     if (a->rows != b->rows || a->cols != b->cols) return NULL;
 
@@ -102,9 +102,9 @@ matrix_t* matrix_add(matrix_t *a, matrix_t *b){
     return c;
 }
 
-matrix_t *matrix_sub(matrix_t *a, matrix_t *b)
+matrix_t *matrix_sub(const matrix_t *a, const matrix_t *b)
 {
-    if (!a || !b) return;
+    if (!a || !b) return NULL;
 
     if (a->rows != b->rows || a->cols != b->cols) return NULL;
 
@@ -120,9 +120,9 @@ matrix_t *matrix_sub(matrix_t *a, matrix_t *b)
     return c;
 }
 
-matrix_t* matrix_mul(matrix_t *a, matrix_t *b)
+matrix_t* matrix_mul(const matrix_t *a, const matrix_t *b)
 {
-    if (!a || !b) return;
+    if (!a || !b) return NULL;
 
     if ((a->cols != b->rows)){
         return NULL;
@@ -136,6 +136,55 @@ matrix_t* matrix_mul(matrix_t *a, matrix_t *b)
             }
         }
 
+    }
+
+    return c;
+}
+
+matrix_t *matrix_scalar_mul(const matrix_t *m, double s)
+{
+    if (!m) return NULL;
+
+    matrix_t *c = matrix_create(m->rows, m->cols);
+
+    for (int i=0; i<m->rows; i++){
+        for (int j=0; j<m->cols; j++){
+            c->data[i][j] = m->data[i][j] * s;
+        }
+    }
+
+    return c;
+}
+
+matrix_t *matrix_transpose(const matrix_t *m)
+{
+    if (!m) return NULL;
+
+    matrix_t *c = matrix_create(m->cols, m->rows);
+
+    for (int i=0; i<m->rows; i++){
+        for (int j=0; j<m->cols; j++){
+            c->data[j][i] = m->data[i][j];
+        }
+    }
+
+    return c;
+}
+
+matrix_t *matrix_hadamard(const matrix_t *a, const matrix_t *b)
+{
+    if (!a || !b) return NULL;
+
+    if ((a->rows == b->rows) && (a->cols == b->cols)){
+        return NULL;
+    }
+
+    matrix_t *c = matrix_create(a->rows, a->cols);
+
+    for (int i=0; i<a->rows-1; i++){
+        for (int j=0; j<a->cols-1; j++){
+            c->data[i][j] = a->data[i][j] * b->data[i][j];
+        }
     }
 
     return c;

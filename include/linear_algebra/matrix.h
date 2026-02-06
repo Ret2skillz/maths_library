@@ -19,9 +19,12 @@ void matrix_ones(matrix_t *m);
 void matrix_identity(matrix_t *m);
 
 //Operations
-matrix_t* matrix_add(matrix_t *a, matrix_t *b);
-matrix_t* matrix_sub(matrix_t *a, matrix_t *b);
-matrix_t* matrix_mul(matrix_t *a, matrix_t *b); //O(n**3)
+matrix_t* matrix_add(const matrix_t *a, const matrix_t *b);
+matrix_t* matrix_sub(const matrix_t *a, const matrix_t *b);
+matrix_t* matrix_mul(const matrix_t *a, const matrix_t *b); //O(n**3)
+matrix_t* matrix_scalar_mul(const matrix_t *m, double s);
+matrix_t* matrix_transpose(const matrix_t *m);
+matrix_t *matrix_hadamard(const matrix_t *a, const matrix_t *b);
 
 
 
