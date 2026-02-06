@@ -20,6 +20,8 @@ void matrix_identity(matrix_t *m);
 
 //Operations
 matrix_t* matrix_add(matrix_t *a, matrix_t *b);
+matrix_t* matrix_sub(matrix_t *a, matrix_t *b);
+matrix_t* matrix_mul(matrix_t *a, matrix_t *b); //O(n**3)
 
 
 
