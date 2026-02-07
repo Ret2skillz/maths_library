@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../../include/linear_algebra/matrix.h"
-#include "matrix.h"
 
 matrix_t *matrix_create(int rows, int cols){
     matrix_t *m = malloc(sizeof(matrix_t));
